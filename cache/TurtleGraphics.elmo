@@ -1,0 +1,261 @@
+Elm.TurtleGraphics = Elm.TurtleGraphics || {};
+Elm.TurtleGraphics.make = function (_elm) {
+   "use strict";
+   _elm.TurtleGraphics = _elm.TurtleGraphics || {};
+   if (_elm.TurtleGraphics.values)
+   return _elm.TurtleGraphics.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "TurtleGraphics";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Mouse = Elm.Mouse.make(_elm);
+   var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var _op = {};
+   var trace = F3(function (w,
+   h,
+   trace) {
+      return function ($) {
+         return A2(Graphics.Collage.collage,
+         w,
+         h)(List.map(Graphics.Collage.traced(Graphics.Collage.defaultLine))(Basics.snd(trace($))));
+      };
+   });
+   var bend = F2(function (d,_v0) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return {ctor: "_Tuple2"
+                   ,_0: _v0._0 + d
+                   ,_1: _v0._1};}
+         _E.Case($moduleName,
+         "on line 42, column 20 to 28");
+      }();
+   });
+   var transparent = F2(function (d,
+   _v4) {
+      return function () {
+         switch (_v4.ctor)
+         {case "_Tuple2":
+            switch (_v4._1.ctor)
+              {case "::":
+                 switch (_v4._1._0.ctor)
+                   {case "::":
+                      switch (_v4._1._0._0.ctor)
+                        {case "_Tuple2":
+                           return {ctor: "_Tuple2"
+                                  ,_0: _v4._0
+                                  ,_1: {ctor: "::"
+                                       ,_0: _L.fromArray([{ctor: "_Tuple2"
+                                                          ,_0: _v4._1._0._0._0 + d * Basics.sin(_v4._0)
+                                                          ,_1: _v4._1._0._0._1 + d * Basics.cos(_v4._0)}])
+                                       ,_1: {ctor: "::"
+                                            ,_0: {ctor: "::"
+                                                 ,_0: {ctor: "_Tuple2"
+                                                      ,_0: _v4._1._0._0._0
+                                                      ,_1: _v4._1._0._0._1}
+                                                 ,_1: _v4._1._0._1}
+                                            ,_1: _v4._1._1}}};}
+                        break;}
+                   break;}
+              break;}
+         _E.Case($moduleName,
+         "on line 39, column 40 to 93");
+      }();
+   });
+   var straight = F2(function (d,
+   _v14) {
+      return function () {
+         switch (_v14.ctor)
+         {case "_Tuple2":
+            switch (_v14._1.ctor)
+              {case "::":
+                 switch (_v14._1._0.ctor)
+                   {case "::":
+                      switch (_v14._1._0._0.ctor)
+                        {case "_Tuple2":
+                           return {ctor: "_Tuple2"
+                                  ,_0: _v14._0
+                                  ,_1: {ctor: "::"
+                                       ,_0: {ctor: "::"
+                                            ,_0: {ctor: "_Tuple2"
+                                                 ,_0: _v14._1._0._0._0 + d * Basics.sin(_v14._0)
+                                                 ,_1: _v14._1._0._0._1 + d * Basics.cos(_v14._0)}
+                                            ,_1: {ctor: "::"
+                                                 ,_0: {ctor: "_Tuple2"
+                                                      ,_0: _v14._1._0._0._0
+                                                      ,_1: _v14._1._0._0._1}
+                                                 ,_1: _v14._1._0._1}}
+                                       ,_1: _v14._1._1}};}
+                        break;}
+                   break;}
+              break;}
+         _E.Case($moduleName,
+         "on line 36, column 37 to 88");
+      }();
+   });
+   var connect = F2(function (traces,
+   turtle) {
+      return A3(List.foldl,
+      F2(function (x,y) {
+         return x(y);
+      }),
+      turtle,
+      traces);
+   });
+   var grow = F3(function (tr1,
+   tr2,
+   turtle) {
+      return function () {
+         var _ = tr1(turtle);
+         var a = function () {
+            switch (_.ctor)
+            {case "_Tuple2":
+               switch (_._1.ctor)
+                 {case "::":
+                    switch (_._1._0.ctor)
+                      {case "::":
+                         switch (_._1._0._0.ctor)
+                           {case "_Tuple2": return _._0;}
+                           break;}
+                      break;}
+                 break;}
+            _E.Case($moduleName,
+            "on line 22, column 56 to 66");
+         }();
+         var ps = function () {
+            switch (_.ctor)
+            {case "_Tuple2":
+               switch (_._1.ctor)
+                 {case "::":
+                    switch (_._1._0.ctor)
+                      {case "::":
+                         switch (_._1._0._0.ctor)
+                           {case "_Tuple2":
+                              return _._1._0._1;}
+                           break;}
+                      break;}
+                 break;}
+            _E.Case($moduleName,
+            "on line 22, column 56 to 66");
+         }();
+         var pss = function () {
+            switch (_.ctor)
+            {case "_Tuple2":
+               switch (_._1.ctor)
+                 {case "::":
+                    switch (_._1._0.ctor)
+                      {case "::":
+                         switch (_._1._0._0.ctor)
+                           {case "_Tuple2":
+                              return _._1._1;}
+                           break;}
+                      break;}
+                 break;}
+            _E.Case($moduleName,
+            "on line 22, column 56 to 66");
+         }();
+         var x = function () {
+            switch (_.ctor)
+            {case "_Tuple2":
+               switch (_._1.ctor)
+                 {case "::":
+                    switch (_._1._0.ctor)
+                      {case "::":
+                         switch (_._1._0._0.ctor)
+                           {case "_Tuple2":
+                              return _._1._0._0._0;}
+                           break;}
+                      break;}
+                 break;}
+            _E.Case($moduleName,
+            "on line 22, column 56 to 66");
+         }();
+         var y = function () {
+            switch (_.ctor)
+            {case "_Tuple2":
+               switch (_._1.ctor)
+                 {case "::":
+                    switch (_._1._0.ctor)
+                      {case "::":
+                         switch (_._1._0._0.ctor)
+                           {case "_Tuple2":
+                              return _._1._0._0._1;}
+                           break;}
+                      break;}
+                 break;}
+            _E.Case($moduleName,
+            "on line 22, column 56 to 66");
+         }();
+         var _ = tr2({ctor: "_Tuple2"
+                     ,_0: a
+                     ,_1: {ctor: "::"
+                          ,_0: {ctor: "::"
+                               ,_0: {ctor: "_Tuple2"
+                                    ,_0: x
+                                    ,_1: y}
+                               ,_1: ps}
+                          ,_1: pss}});
+         var pss$ = function () {
+            switch (_.ctor)
+            {case "_Tuple2": return _._1;}
+            _E.Case($moduleName,
+            "on line 23, column 44 to 68");
+         }();
+         return {ctor: "_Tuple2"
+                ,_0: a
+                ,_1: {ctor: "::"
+                     ,_0: _L.fromArray([{ctor: "_Tuple2"
+                                        ,_0: x
+                                        ,_1: y}])
+                     ,_1: pss$}};
+      }();
+   });
+   _op[">."] = grow;
+   var sprout = F2(function (traces,
+   turtle) {
+      return A3(List.foldl,
+      grow(Basics.id),
+      turtle,
+      traces);
+   });
+   var join = Basics.flip(F2(function (x,
+   y) {
+      return function ($) {
+         return x(y($));
+      };
+   }));
+   _op[">>"] = join;
+   var turtleAt = function (pos) {
+      return {ctor: "_Tuple2"
+             ,_0: 0
+             ,_1: _L.fromArray([_L.fromArray([pos])])};
+   };
+   _elm.TurtleGraphics.values = {_op: _op
+                                ,turtleAt: turtleAt
+                                ,join: join
+                                ,grow: grow
+                                ,connect: connect
+                                ,sprout: sprout
+                                ,straight: straight
+                                ,transparent: transparent
+                                ,bend: bend
+                                ,trace: trace};
+   return _elm.TurtleGraphics.values;
+};

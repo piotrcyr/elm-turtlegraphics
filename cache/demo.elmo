@@ -1,0 +1,179 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Main";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var TurtleGraphics = Elm.TurtleGraphics.make(_elm);
+   var _op = {};
+   var spiral = F4(function (n,
+   len,
+   angle,
+   ratio) {
+      return function () {
+         switch (n)
+         {case 0:
+            return TurtleGraphics.straight(0);}
+         return TurtleGraphics.connect(_L.fromArray([TurtleGraphics.bend(angle)
+                                                    ,TurtleGraphics.straight(len)
+                                                    ,TurtleGraphics.bend(angle)
+                                                    ,TurtleGraphics.straight(len)
+                                                    ,TurtleGraphics.bend(angle)
+                                                    ,TurtleGraphics.straight(len)
+                                                    ,A4(spiral,
+                                                    n - 1,
+                                                    ratio * len,
+                                                    angle,
+                                                    ratio)]));
+      }();
+   });
+   var rdragon = F3(function (n,
+   len,
+   angle) {
+      return function () {
+         switch (n)
+         {case 0:
+            return TurtleGraphics.straight(len);}
+         return TurtleGraphics.connect(_L.fromArray([TurtleGraphics.bend(0 - angle)
+                                                    ,A3(rdragon,n - 1,len,angle)
+                                                    ,TurtleGraphics.bend(2 * angle)
+                                                    ,A3(ldragon,n - 1,len,angle)
+                                                    ,TurtleGraphics.bend(0 - angle)]));
+      }();
+   });
+   var ldragon = F3(function (n,
+   len,
+   angle) {
+      return function () {
+         switch (n)
+         {case 0:
+            return TurtleGraphics.straight(len);}
+         return TurtleGraphics.connect(_L.fromArray([TurtleGraphics.bend(angle)
+                                                    ,A3(rdragon,n - 1,len,angle)
+                                                    ,TurtleGraphics.bend(-2 * angle)
+                                                    ,A3(ldragon,n - 1,len,angle)
+                                                    ,TurtleGraphics.bend(angle)]));
+      }();
+   });
+   var koch = F3(function (n,
+   len,
+   angle) {
+      return function () {
+         switch (n)
+         {case 0:
+            return TurtleGraphics.straight(len);}
+         return TurtleGraphics.connect(_L.fromArray([A3(koch,
+                                                    n - 1,
+                                                    len,
+                                                    angle)
+                                                    ,TurtleGraphics.bend(0 - angle)
+                                                    ,A3(koch,n - 1,len,angle)
+                                                    ,TurtleGraphics.bend(2 * angle)
+                                                    ,A3(koch,n - 1,len,angle)
+                                                    ,TurtleGraphics.bend(0 - angle)
+                                                    ,A3(koch,
+                                                    n - 1,
+                                                    len,
+                                                    angle)]));
+      }();
+   });
+   var tree = F5(function (n,
+   x,
+   y,
+   tip,
+   ratio) {
+      return function () {
+         switch (n)
+         {case 1:
+            return TurtleGraphics.straight(tip);}
+         return A2(TurtleGraphics._op[">."],
+         TurtleGraphics.straight(tip * ratio * n),
+         TurtleGraphics.sprout(_L.fromArray([A2(TurtleGraphics._op[">>"],
+                                            TurtleGraphics.bend(x),
+                                            A5(tree,n - 1,x,y,tip,ratio))
+                                            ,A2(TurtleGraphics._op[">>"],
+                                            TurtleGraphics.bend(y),
+                                            A5(tree,
+                                            n - 1,
+                                            x,
+                                            y,
+                                            tip,
+                                            ratio))])));
+      }();
+   });
+   var main = A2(Graphics.Element.flow,
+   Graphics.Element.down,
+   _L.fromArray([A4(TurtleGraphics.trace,
+                200,
+                200,
+                A5(tree,
+                7,
+                Basics.pi / 6,
+                (0 - Basics.pi) / 6,
+                4,
+                1.001),
+                TurtleGraphics.turtleAt({ctor: "_Tuple2"
+                                        ,_0: 0
+                                        ,_1: -50}))
+                ,A4(TurtleGraphics.trace,
+                200,
+                200,
+                A4(spiral,
+                200,
+                200,
+                2 * Basics.pi / 5 - 2.0e-2,
+                0.97),
+                TurtleGraphics.turtleAt({ctor: "_Tuple2"
+                                        ,_0: -100
+                                        ,_1: 100}))
+                ,A4(TurtleGraphics.trace,
+                200,
+                200,
+                A3(koch,
+                5,
+                2.8,
+                4 * Basics.pi / 9),
+                TurtleGraphics.turtleAt({ctor: "_Tuple2"
+                                        ,_0: 0
+                                        ,_1: -100}))
+                ,A4(TurtleGraphics.trace,
+                200,
+                200,
+                A3(rdragon,
+                13,
+                0.69,
+                Basics.pi / 4.3),
+                TurtleGraphics.turtleAt({ctor: "_Tuple2"
+                                        ,_0: 0
+                                        ,_1: -60}))]));
+   _elm.Main.values = {_op: _op
+                      ,tree: tree
+                      ,koch: koch
+                      ,rdragon: rdragon
+                      ,ldragon: ldragon
+                      ,spiral: spiral
+                      ,main: main};
+   return _elm.Main.values;
+};

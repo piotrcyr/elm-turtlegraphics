@@ -3,13 +3,13 @@ module TurtleGraphics where
 {-| Library for creating [turtle graphics](http://en.wikipedia.org/wiki/Turtle_graphics)
 
 # The turtle...
-@docs Turtle turtleAt
+@docs Turtle, turtleAt
 
 # ... and it's trace
-@docs straight transparent bend
+@docs straight, transparent, bend
 
 # joining and mixing traces
-@docs join grow connect sprout >> >.
+@docs join, grow, connect, sprout, >>, >.
 
 -}
 

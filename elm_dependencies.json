@@ -1,5 +1,5 @@
 {
-    "version": "0.1.0.3",
+    "version": "0.1.0.4",
     "summary": "Simple turtle graphics library for ELm",
     "description": "This library provides functions for creating simple turtle graphics.",
     "license": "BSD3",

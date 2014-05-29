@@ -9,7 +9,7 @@ module TurtleGraphics where
 @docs straight, transparent, bend
 
 # joining and mixing traces
-@docs join, grow, connect, sprout, >>, >.
+@docs join, grow, connect, sprout, (>>), (>.)
 
 -}
 
